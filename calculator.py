@@ -10,89 +10,89 @@
 # 1+2*3 => 7;
 # (1+2)*3 => 9;
 
-# print(eval(input("Введите выражение:  "))) - быстрое решение
+print(eval(input("Введите выражение:  "))) # - быстрое решение
 
-# def Summ (num1, num2):
-#     return num1 + num2
-# def Minus (num1, num2):
-#     return num1 - num2
-# def Multiplication (num1, num2):
-#     return num1 * num2
-# def Division (num1, num2):
-#     return num1/num2
+def Summ (num1, num2):
+    return num1 + num2
+def Minus (num1, num2):
+    return num1 - num2
+def Multiplication (num1, num2):
+    return num1 * num2
+def Division (num1, num2):
+    return num1/num2
 
 
-user_string = '1-3*6'
+# user_string = '1-3*6'
 
-def user_do (user_string ):
-    res = ' '
-    for i in range (0, len(user_string)):
-        if (user_string[i] == '*') or (user_string[i] =='/'):
-            if user_string[i] == '*':
-                temp_value = str(Multiplication(int(user_string[i-1]),int(user_string[i+1])))
-                res = user_string[:i-1] + temp_value + user_string[i+2:]
-                print(res)
-                return res
-        if user_string[i] == '/':
-            temp_value = str(Division(int(user_string[i-1]),int(user_string[i+1])))
-            res = user_string[:i-1] + temp_value + user_string[i+2:]
-            print(res)
-            return res
-    for i in range (0, len(user_string)):
-        if (user_string[i] == '+') or (user_string[i] =='-'):
-            if user_string[i] == '+':
-                temp_value = str(Summ(int(user_string[i-1]),int(user_string[i+1])))
-                res = user_string[:i-1] + temp_value + user_string[i+2:]
-                print(res)
-                return res
-        if user_string[i] == '-':
-            temp_value = str(Minus(int(user_string[i-1]),int(user_string[i+1])))
-            res = user_string[:i-1] + temp_value + user_string[i+2:]
-            print(res)
-            return res
+# def user_do (user_string ):
+#     res = ' '
+#     for i in range (0, len(user_string)):
+#         if (user_string[i] == '*') or (user_string[i] =='/'):
+#             if user_string[i] == '*':
+#                 temp_value = str(Multiplication(int(user_string[i-1]),int(user_string[i+1])))
+#                 res = user_string[:i-1] + temp_value + user_string[i+2:]
+#                 print(res)
+#                 return res
+#         if user_string[i] == '/':
+#             temp_value = str(Division(int(user_string[i-1]),int(user_string[i+1])))
+#             res = user_string[:i-1] + temp_value + user_string[i+2:]
+#             print(res)
+#             return res
+#     for i in range (0, len(user_string)):
+#         if (user_string[i] == '+') or (user_string[i] =='-'):
+#             if user_string[i] == '+':
+#                 temp_value = str(Summ(int(user_string[i-1]),int(user_string[i+1])))
+#                 res = user_string[:i-1] + temp_value + user_string[i+2:]
+#                 print(res)
+#                 return res
+#         if user_string[i] == '-':
+#             temp_value = str(Minus(int(user_string[i-1]),int(user_string[i+1])))
+#             res = user_string[:i-1] + temp_value + user_string[i+2:]
+#             print(res)
+#             return res
 
-user_do(user_string)
+# user_do(user_string)
 
-user_do(user_do(user_string))
+# user_do(user_do(user_string))
 
-import re
+# import re
 
-def parse_symbols(full_string):
-    res_list = []
-    for i in full_string:
-        if i in '+-/*':
-            res_list.append(i)
-    return res_list
+# def parse_symbols(full_string):
+#     res_list = []
+#     for i in full_string:
+#         if i in '+-/*':
+#             res_list.append(i)
+#     return res_list
 
-def calc(num_list: list, op_list: list):
-    while len(num_list) > 1:
-        if ('*' in op_list) and ('/' in op_list):
-            if op_list.index('*') < op_list.index('/'):
-                i = op_list.index('*')
-                sc = '*'
-                tmp = list[num_list[i] * num_list[i + 1]]
-                num_list = num_list[:i] + tmp + num_list[i + 2:]
-                op_list.remove(sc)
-            else:
-                i = op_list.index('/')
-                sc = '/'
-        elif '*' in op_list:
-            i = op_list.index('*')
-            sc = '*'
-        elif '/' in op_list:
-            i = op_list.index('/')
-            sc = '/'
-        elif ('+' in op_list) and ('-' in op_list):
+# def calc(num_list: list, op_list: list):
+#     while len(num_list) > 1:
+#         if ('*' in op_list) and ('/' in op_list):
+#             if op_list.index('*') < op_list.index('/'):
+#                 i = op_list.index('*')
+#                 sc = '*'
+#                 tmp = list[num_list[i] * num_list[i + 1]]
+#                 num_list = num_list[:i] + tmp + num_list[i + 2:]
+#                 op_list.remove(sc)
+#             else:
+#                 i = op_list.index('/')
+#                 sc = '/'
+#         elif '*' in op_list:
+#             i = op_list.index('*')
+#             sc = '*'
+#         elif '/' in op_list:
+#             i = op_list.index('/')
+#             sc = '/'
+#         elif ('+' in op_list) and ('-' in op_list):
         
-        tmp = list[num_list[i] * num_list[i + 1]]
-        num_list = num_list[:i] + tmp + num_list[i + 2:]
-        op_list.remove(sc)
+#         tmp = list[num_list[i] * num_list[i + 1]]
+#         num_list = num_list[:i] + tmp + num_list[i + 2:]
+#         op_list.remove(sc)
 
-expression = input("Введите выражение: ")
-expression = '22+12*2-35/10'
-symbs = parse_symbols(expression)
-expression = list(map(int, re.split(r'\+|\-|\*|\/', expression)))
-expression = re.findall(r'-|/|\+|\*|[\d]+', expression)
-print(expression)
-print(symbs)
+# expression = input("Введите выражение: ")
+# expression = '22+12*2-35/10'
+# symbs = parse_symbols(expression)
+# expression = list(map(int, re.split(r'\+|\-|\*|\/', expression)))
+# expression = re.findall(r'-|/|\+|\*|[\d]+', expression)
+# print(expression)
+# print(symbs)
 
